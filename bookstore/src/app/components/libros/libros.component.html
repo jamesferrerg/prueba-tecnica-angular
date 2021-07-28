@@ -1,0 +1,38 @@
+<app-detalle *ngIf="libroSeleccionado" [libro]="libroSeleccionado"></app-detalle>
+<div class="container card border-secondary mb-3 mt-3">
+    <div class="card-header">Lista de libros</div>
+    <div class="card-body text-dark table-responsive">
+        <div class="my-2 d-flex justify-content-between p-2 form-inline">
+            <form>
+                <div class="form-group form-inline text-primary">
+                    <input class="form-control ml-2" type="text" placeholder="Buscar..." name="search" [(ngModel)]="termino"/>
+                </div>
+            </form>
+        </div>
+
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="bg-secondary text-white">
+                <tr>
+                    <th>#</th>
+                    <th>Titulo del libro</th>
+                    <th>Año</th>
+                    <th>Autor</th>
+                    <th>Más información</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let libro of libros | filter:termino ; let i = index">
+                    <td> {{ i + 1 }} </td>
+                    <td> {{ libro.titulo }} </td>
+                    <td> {{ libro.fechaYear }} </td>
+                    <td> {{ libro.autor.nombreCompleto }} </td>
+                    <td>
+                        <button mat-raised-button color="primary" (click)="abrirModal(libro)">Ver</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

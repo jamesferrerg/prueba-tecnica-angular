@@ -1,0 +1,45 @@
+<div class="abrir-modal animacion fadeIn" *ngIf="modalService.modal">
+    <div class="modal" tabindex="-1" role="dialog" style="display: block;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Información del libro</h5>
+                    <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <ul *ngIf="libro" class="list-group mb-3">
+                                    <li class="list-group-item list-group-item-primary">Titulo: {{libro.titulo}}</li>
+                                    <li class="list-group-item">Año: {{libro.fechaYear}}</li>
+                                    <li class="list-group-item">Genero: {{libro.genero}}</li>
+                                    <li class="list-group-item">Nro de paginas: {{libro.numeroPaginas}}</li>
+                                    <li class="list-group-item list-group-item-secondary">Autor: {{libro.autor.nombreCompleto}}</li>
+                                    <li class="list-group-item">Fecha de nacimiento: {{libro.autor.fechaNacimiento | date:"dd MMMM, yyyy"}}</li>
+                                    <li class="list-group-item">Ciudad de procedencia: {{libro.autor.ciudadProcedencia}}</li>
+                                    <li class="list-group-item">Email del autor: {{libro.autor.email}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm">
+                                <ul *ngIf="libro" class="list-group mb-3">
+                                    <li class="list-group-item list-group-item-secondary">Editorial: {{libro.editorial.nombre}} </li>
+                                    <li class="list-group-item">Dirección: {{libro.editorial.direccion}}</li>
+                                    <li class="list-group-item">Telefono: {{libro.editorial.telefono}}</li>
+                                    <li class="list-group-item">Email: {{libro.editorial.email}}</li>
+                                    <li class="list-group-item">Max. libros: {{libro.editorial.maxLibrosRegistrados}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
